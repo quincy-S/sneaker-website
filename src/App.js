@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react"
+import Navbar from "./components/Navbar"
+import Content from "./components/Content"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+
+  const [amount, setAmount] =useState(0)
+  const [total ,setTotal] = useState(125)
+
+  function handleIncrease(){
+    let copyAmount = amount
+    setAmount(copyAmount+1)
+    setTotal((copyAmount+1)*125)
+  }
+
+  function handleDecrease(){
+    if(amount > 0){
+      let copyAmount = amount
+      setAmount(copyAmount-1)
+      setTotal((copyAmount-1)*125)
+    }
+   
+  }
+  return(
+    <>
+      <Navbar />
+      <Content 
+        handleDecrease={handleDecrease}
+        handleIncrease={handleIncrease}
+        amount={amount}
+        total={total}
+        />
+    </>
+  )
 }
 
-export default App;
+export default App
