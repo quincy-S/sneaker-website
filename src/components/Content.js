@@ -31,7 +31,7 @@ const Content = (props) => {
       <div className="content-div">
         
         <div className="img-div">
-          <Cart total ={props.total} amount={props.amount} number={number} IMAGETHUMB={IMAGETHUMB}/>
+          <Cart total ={props.total} zeroAmount={props.zeroAmount} amount={props.amount} number={number} IMAGETHUMB={IMAGETHUMB}/>
           <img className="product-img" src={IMAGES[number]} alt="product-img"/>
           <Changer prev={prev} next={next} handlePrevImage={handlePrevImage} handleNextImage={handleNextImage}/>
         </div>

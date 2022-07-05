@@ -20,15 +20,15 @@ const App = () => {
       setAmount(copyAmount-1)
       setTotal((copyAmount-1)*125)
     }
-   
   }
   return(
     <>
-      <Navbar />
+      <Navbar amount={amount}/>
       <Content 
         handleDecrease={handleDecrease}
         handleIncrease={handleIncrease}
         amount={amount}
+        zeroAmount={setAmount}
         total={total}
         />
     </>

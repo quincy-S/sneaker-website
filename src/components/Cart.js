@@ -3,7 +3,7 @@ import EmptyCart from "./EmptyCart";
 import FullCart from "./FullCart";
 
 
-const Cart = ({amount, number, IMAGETHUMB, total}) => {
+const Cart = ({zeroAmount, amount, number, IMAGETHUMB, total}) => {
 
   return (
     <div className="cart-popup">
@@ -12,7 +12,7 @@ const Cart = ({amount, number, IMAGETHUMB, total}) => {
       </div>
       <hr />
       <div className="cart-body">
-        {amount === 0 ? <EmptyCart /> : <FullCart IMAGETHUMB = {IMAGETHUMB} total={total} number={number} amount={amount}/>}
+        {amount === 0 ? <EmptyCart /> : <FullCart zeroAmount={zeroAmount} IMAGETHUMB = {IMAGETHUMB} total={total} number={number} amount={amount}/>}
       </div>
     </div>
   )

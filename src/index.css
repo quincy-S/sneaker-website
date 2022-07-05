@@ -17,12 +17,33 @@ nav{
     justify-content: space-between;
     align-items: center;
     position: relative;
+    padding: 0.4rem 0rem;
+    border: 2px red ;
 }
 
 .burger{
-    width:1.25rem;
-    margin:1.75rem 0rem 1.56rem 1.25rem;
+    /* left:8rem; */
+    width:1.5rem;
+    margin:1.75rem 1.25rem 1.56rem 0rem;
     cursor:pointer;
+    z-index:5;
+    /* position: relative; */
+}
+
+.bar::after,.bar::before{
+  background-color: black;
+  content:"";
+  display:block;
+  height:0.2rem;
+  width: 100%;
+}
+
+.bar::before{
+  transform: translateY(-0.5rem);
+}
+
+.bar::after{
+  transform: translateY(0.3rem);
 }
 
 .bar{
@@ -277,16 +298,16 @@ nav{
   box-shadow:0.0rem 0.6rem 1.1rem #888888;
   display:flex;
   flex-flow: column;
-  /* margin: 0 auto; */
-  /* transform: translate(-50%, -50%) scale(0.1);
+  margin: 0 auto;
+  transform: translate(-50%, -50%) scale(0.1);
   visibility: hidden;
-  transition: transform 0.3s, top 0.3s; */
+  transition: transform 0.3s, top 0.3s;
   z-index: 4;
 }
 
 .img-des-amt{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .cart-header{
@@ -301,7 +322,9 @@ nav{
 }
 
 .cart-popup > hr{
-  width:100%;
+  align-self: center;
+  width:90%;
+  opacity:0.2;
 }
 
 .cart-header > h2{
@@ -324,25 +347,39 @@ nav{
   width:3rem;
   height:3rem;
   border-radius: 0.2rem;
-  margin-left: 2rem;
+  margin-left: 1rem;
 }
 
 .trashcan-img{
-  margin-right:2rem;
+  margin-right:1rem;
   width:1.5rem;
 }
 .check-out-text{
   padding: 0 1rem;
 }
 
-.checkout-btn-div{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid red;
+.checkout-btn{
+  height:3rem;
+  width: 100%;
+  background-color: hsl(26, 100%, 55%);
+  border:none;
+  border-radius: 0.56rem;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
 }
 
 .fin{
   font-weight: bolder;
   color:black;
+}
+
+.popup{
+  background-color: hsl(26, 100%, 55%);
+  color:white;
+  padding:0 0.6rem;
+  position:absolute;
+  border-radius: 1.5rem;
+  margin-right:3rem;
+  margin-bottom: 1.5rem;
 }
