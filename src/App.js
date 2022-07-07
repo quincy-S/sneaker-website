@@ -7,6 +7,8 @@ const App = () => {
 
   const [amount, setAmount] =useState(0)
   const [total ,setTotal] = useState(125)
+  const [showCart, setShowCart] = useState(false)
+  const [dataFromContent, setDataFromContent]= useState(false)
 
   function handleIncrease(){
     let copyAmount = amount
@@ -21,15 +23,26 @@ const App = () => {
       setTotal((copyAmount-1)*125)
     }
   }
+
+  function handleAdd(data){
+    setDataFromContent(true)
+  }
+
+  function viewCart(){
+    showCart ? setShowCart(false) : setShowCart(true)
+  }
+
   return(
     <>
-      <Navbar amount={amount}/>
+      <Navbar amount={amount} popUpData={dataFromContent} viewCart={viewCart}/>
       <Content 
         handleDecrease={handleDecrease}
         handleIncrease={handleIncrease}
         amount={amount}
-        zeroAmount={setAmount}
+        clearCart={setDataFromContent}
         total={total}
+        callFromApp = {handleAdd}
+        showCart={showCart}
         />
     </>
   )

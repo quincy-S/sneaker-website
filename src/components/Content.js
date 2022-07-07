@@ -7,10 +7,11 @@ import Changer from "./Changer"
 import {IMAGES,IMAGETHUMB} from "../images/Images"
 import Cart from "./Cart";
 
+
 const Content = (props) => {
 
     const [number, setNumber] = useState(0)
-    
+    const [add, setAdd] = useState(false)
   
     function handleNextImage(){
       if(number < 3){
@@ -25,15 +26,34 @@ const Content = (props) => {
         setNumber(copyNumber - 1)
       }
     }
-  
+
+    function addToCart(){
+      if(add !== true){
+        setAdd(true)
+        props.callFromApp(true)
+      }
+    }
+
     return (
       
       <div className="content-div">
         
         <div className="img-div">
-          <Cart total ={props.total} zeroAmount={props.zeroAmount} amount={props.amount} number={number} IMAGETHUMB={IMAGETHUMB}/>
+          <Cart 
+            showCart = {props.showCart}
+            total ={props.total} 
+            add={add} 
+            setAdd={setAdd} 
+            clearCart={props.clearCart} 
+            amount={props.amount} 
+            number={number} 
+            IMAGETHUMB={IMAGETHUMB}/>
           <img className="product-img" src={IMAGES[number]} alt="product-img"/>
-          <Changer prev={prev} next={next} handlePrevImage={handlePrevImage} handleNextImage={handleNextImage}/>
+          <Changer 
+            prev={prev} 
+            next={next} 
+            handlePrevImage={handlePrevImage} 
+            handleNextImage={handleNextImage}/>
         </div>
         <div>
           <div className="text-div">
@@ -53,7 +73,7 @@ const Content = (props) => {
                   <h5 className="total" id="amount">{props.amount}</h5>
                 <img className="plus-img arith" src={plus} alt="plus-btn" onClick={props.handleIncrease}/>
               </span>
-              <button className="cart-btn">
+              <button className="cart-btn" onClick={addToCart}>
                 <i className="fa-solid fa-cart-shopping"></i>
                 Add to Cart
               </button>

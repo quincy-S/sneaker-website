@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Changer = (props) => {
     return(
       <div className="change-image-div">
