@@ -21,6 +21,7 @@ const Cart = (props) => {
             amount={props.amount} 
             add={props.add}/>
         : <EmptyCart />}        
+        
       </div>
     </div>
   )
