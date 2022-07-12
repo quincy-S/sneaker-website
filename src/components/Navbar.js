@@ -20,8 +20,9 @@ const Navbar = ({amount, popUpData, viewCart}) => {
       <nav>
         <div className="logo-menu-div">
           <Burger toggleMenu={toggleMenu}/>
-          <Navlinks show={show} toggleMenu={toggleMenu}/>
+          
           <img src={logo} alt="logo-img"/>
+          <Navlinks show={show} toggleMenu={toggleMenu}/>
         </div>
         <div className="navbarimg-div">
           {popUpData && amount > 0 ? <Popup amount={amount}/> : null}
