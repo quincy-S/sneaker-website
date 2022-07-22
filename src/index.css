@@ -280,6 +280,10 @@ p{
   cursor: pointer;
 }
 
+.nav-links li a{
+  text-decoration:none;
+}
+
 .close-btn{
   display:block;
   width:1rem;
